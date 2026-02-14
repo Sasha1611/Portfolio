@@ -7,6 +7,9 @@ import vercel from "@astrojs/vercel";
 export default defineConfig({
   vite: {
       plugins: [tailwindcss()],
+      css: {
+          transformer: 'lightningcss',
+      }
   },
 
   adapter: vercel(),
