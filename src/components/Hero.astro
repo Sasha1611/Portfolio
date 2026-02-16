@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/images/portrait.png"
+---
+
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+
+    {/* Radial glow */}
+    <div
+            class="pointer-events-none absolute left-1/2 top-[68%]
+           -translate-x-1/2 -translate-y-1/2
+           w-[1600px] h-[1200px]
+           bg-[radial-gradient(circle,rgba(159,192,243,1)_40%,rgba(159,192,243,0.70)_40%,transparent_80%)]
+           blur-2xl"
+    />
+
+    {/* Оптимизированное изображение */}
+    <Image
+            src={heroImage}
+            alt="Hero image"
+            class="relative z-10 w-[1350px] object-contain"
+            width={2000}
+            quality={90}
+            format="webp"
+    />
+
+</section>
