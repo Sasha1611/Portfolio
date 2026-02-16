@@ -14,9 +14,9 @@ import Header from "./Header.astro";
 
         {/* Radial glow (под портретом) */}
         <div
-                class="pointer-events-none absolute left-1/2 top-[70%]
+                class="pointer-events-none absolute left-1/2 top-[80%]
              -translate-x-1/2 -translate-y-1/2
-             w-400 h-300
+           w-400 h-300
              bg-[radial-gradient(circle,rgba(159,192,243,1)_40%,rgba(159,192,243,0.7)_40%,transparent_80%)]
              blur-2xl"
         />
@@ -25,8 +25,12 @@ import Header from "./Header.astro";
         <Image
                 src={heroImage}
                 alt="Portrait"
-                class="relative z-10 block h-auto object-contain
-         w-[min(45vw,1200px)]"
+                class="relative z-10 block object-contain
+         w-auto
+         max-h-[55vh]
+         sm:max-h-[62vh]
+         md:max-h-[72vh]
+         2xl:max-h-[78vh]"
                 width={2000}
                 quality={90}
                 format="webp"
