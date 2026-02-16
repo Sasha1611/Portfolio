@@ -15,10 +15,19 @@ import Header from "./Header.astro";
         {/* Radial glow (под портретом) */}
         <div
                 class="pointer-events-none absolute left-1/2 top-[80%]
-             -translate-x-1/2 -translate-y-1/2
-           w-400 h-300
-             bg-[radial-gradient(circle,rgba(159,192,243,1)_40%,rgba(159,192,243,0.7)_40%,transparent_80%)]
-             blur-2xl"
+         -translate-x-1/2 -translate-y-1/2
+
+         w-[clamp(520px,90vw,1500px)]
+         h-[clamp(360px,70vw,1100px)]
+
+         xl:w-[clamp(480px,70vw,1100px)]
+         xl:h-[clamp(320px,55vw,850px)]
+
+         2xl:w-[clamp(600px,90vw,1600px)]
+         2xl:h-[clamp(400px,70vw,1200px)]
+
+         bg-[radial-gradient(circle,rgba(159,192,243,0.9)_25%,rgba(159,192,243,0.5)_55%,transparent_85%)]
+         blur-[160px]"
         />
 
         {/* Портрет */}
@@ -30,7 +39,7 @@ import Header from "./Header.astro";
          max-h-[55vh]
          sm:max-h-[62vh]
          md:max-h-[72vh]
-         2xl:max-h-[78vh]"
+         2xl:max-h-[74vh]"
                 width={2000}
                 quality={90}
                 format="webp"
