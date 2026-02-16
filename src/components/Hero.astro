@@ -1,9 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import heroImage from "../assets/images/portrait.png"
+import Header from "./Header.astro";
 ---
 
-<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<section class="relative h-screen flex items-end justify-center overflow-hidden snap-start">
+    <Header />
 
     {/* Radial glow */}
     <div
@@ -18,7 +20,7 @@ import heroImage from "../assets/images/portrait.png"
     <Image
             src={heroImage}
             alt="Hero image"
-            class="relative z-10 w-[1350px] object-contain"
+            class="relative z-10 w-[1350px] h-auto object-contain block"
             width={2000}
             quality={90}
             format="webp"

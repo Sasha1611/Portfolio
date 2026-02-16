@@ -1,13 +1,22 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 ---
 
 <MainLayout title="Andrey Rud Portfolio">
-	<Header />
-
-	<main class="pt-32">
+	<main>
 		<Hero />
+		<section id="about" class="h-screen bg-gray-900 flex items-center justify-center snap-start text-white text-4xl font-bold">
+			About Me
+		</section>
+		<section id="education" class="h-screen bg-blue-900 flex items-center justify-center snap-start text-white text-4xl font-bold">
+			Education
+		</section>
+		<section id="projects" class="h-screen bg-emerald-900 flex items-center justify-center snap-start text-white text-4xl font-bold">
+			Projects
+		</section>
+		<section id="contact" class="h-screen bg-neutral-900 flex items-center justify-center snap-start text-white text-4xl font-bold">
+			Contact
+		</section>
 	</main>
 </MainLayout>
