@@ -4,26 +4,33 @@ import heroImage from "../assets/images/portrait.png"
 import Header from "./Header.astro";
 ---
 
-<section class="relative h-screen flex items-end justify-center overflow-hidden snap-start">
+<section class="relative h-screen flex flex-col overflow-hidden snap-start">
+
+    {/* Header сверху */}
     <Header />
 
-    {/* Radial glow */}
-    <div
-            class="pointer-events-none absolute left-1/2 top-[68%]
-           -translate-x-1/2 -translate-y-1/2
-           w-[1600px] h-[1200px]
-           bg-[radial-gradient(circle,rgba(159,192,243,1)_40%,rgba(159,192,243,0.70)_40%,transparent_80%)]
-           blur-2xl"
-    />
+    {/* Контентная зона занимает всё оставшееся пространство */}
+    <div class="relative flex-1 flex items-end justify-center">
 
-    {/* Оптимизированное изображение */}
-    <Image
-            src={heroImage}
-            alt="Hero image"
-            class="relative z-10 w-[1350px] h-auto object-contain block"
-            width={2000}
-            quality={90}
-            format="webp"
-    />
+        {/* Radial glow (под портретом) */}
+        <div
+                class="pointer-events-none absolute left-1/2 top-[70%]
+             -translate-x-1/2 -translate-y-1/2
+             w-[1600px] h-[1200px]
+             bg-[radial-gradient(circle,rgba(159,192,243,1)_40%,rgba(159,192,243,0.7)_40%,transparent_80%)]
+             blur-2xl"
+        />
+
+        {/* Портрет */}
+        <Image
+                src={heroImage}
+                alt="Portrait"
+                class="relative z-10 w-[1350px] h-auto object-contain block"
+                width={2000}
+                quality={90}
+                format="webp"
+        />
+
+    </div>
 
 </section>
