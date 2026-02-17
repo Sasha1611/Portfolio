@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    src: any;
+    alt?: string;
+    topClass?: string;
+    leftClass?: string;
+    rightClass?: string;
+    rotateClass?: string;       // базовый статичный наклон (например rotate-[-15deg])
+    borderClass?: string;
+    sizeClass?: string;
+    depth?: number;
+}
+
+const {
+    src,
+    alt = "design example",
+    topClass = "",
+    leftClass = "",
+    rightClass = "",
+    rotateClass = "",
+    borderClass = "hover:border-blue-400",
+    sizeClass = "w-[140px] 2xl:w-[260px]",
+    depth = 10
+} = Astro.props as Props;
+---
+
+<!-- Внешний слой — позиция + глубина -->
+<div
+        class={`parallax-card absolute z-20 ${topClass} ${leftClass} ${rightClass}`}
+        data-depth={depth}
+>
+
+    <!-- Средний слой — базовый rotate из Tailwind + perspective -->
+    <div 
+        class={`${rotateClass} ${sizeClass}`}
+        style="perspective: 1000px;"
+    >
+
+        <!-- Внутренний слой — 3D tilt + translate -->
+        <div
+                class="
+        rounded-xl
+        overflow-hidden
+        border-2 border-transparent
+        shadow-xl
+       transition-[border-color,box-shadow] duration-300
+        hover:scale-105 hover:z-30
+        will-change-transform
+        ${borderClass}
+      "
+                style="
+       transform:
+  translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0)
+  rotateX(var(--parallax-tilt-x, 0deg))
+  rotateY(var(--parallax-tilt-y, 0deg));
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+      "
+        >
+            <Image
+                    src={src}
+                    alt={alt}
+                    class="block w-full h-auto"
+                    quality={100}
+            />
+        </div>
+
+    </div>
+</div>

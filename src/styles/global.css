@@ -4,6 +4,14 @@
     --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* Parallax custom properties - default values for IDE type checking */
+:root {
+    --parallax-x: 0px;
+    --parallax-y: 0px;
+    --parallax-tilt-x: 0deg;
+    --parallax-tilt-y: 0deg;
+}
+
 @font-face {
     font-family: 'Poppins';
     src: url("/fonts/Poppins-Regular.woff2") format('woff2');

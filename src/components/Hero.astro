@@ -1,16 +1,19 @@
 ---
-import { Image } from "astro:assets";
+import {Image} from "astro:assets";
 import heroImage from "../assets/images/portrait.png"
+import design_synthetica from "../assets/images/design_synthetica.png"
 import Header from "./Header.astro";
+import FloatingCard from "./FloatingCard.astro";
 ---
 
 <section class="relative h-screen flex flex-col overflow-hidden snap-start">
 
     {/* Header сверху */}
-    <Header />
+    <Header/>
 
     {/* Контентная зона занимает всё оставшееся пространство */}
-    <div class="relative flex-1 flex items-end justify-center">
+    <div id="parallax-container"
+         class="relative flex-1 flex items-end justify-center [perspective:1000px]">
 
         {/* Radial glow (под портретом) */}
         <div
@@ -30,16 +33,53 @@ import Header from "./Header.astro";
          blur-[160px]"
         />
 
+        {/* Floating design cards */}
+
+        <FloatingCard
+                src={design_synthetica}
+                topClass="top-[35%]"
+                leftClass="left-[8%]"
+                rotateClass="rotate-[-15deg]"
+                borderClass="hover:border-[#9FC0F3]"
+                depth={15}
+        />
+
+        <FloatingCard
+                src={design_synthetica}
+                topClass="top-[20%]"
+                leftClass="left-[25%]"
+                rotateClass="rotate-[-8deg]"
+                borderClass="hover:border-[#9FC0F3]"
+                depth={25}
+        />
+
+        <FloatingCard
+                src={design_synthetica}
+                topClass="top-[20%]"
+                leftClass="right-[25%]"
+                rotateClass="rotate-[8deg]"
+                borderClass="hover:border-[#9FC0F3]"
+                depth={20}
+        />
+
+        <FloatingCard
+                src={design_synthetica}
+                topClass="top-[35%]"
+                leftClass="right-[8%]"
+                rotateClass="rotate-[14deg]"
+                borderClass="hover:border-[#9FC0F3]"
+                depth={30}
+        />
+
         {/* Портрет */}
-        <Image
-                src={heroImage}
+        <Image src={heroImage}
                 alt="Portrait"
                 class="relative z-10 block object-contain
-         w-auto
-         max-h-[55vh]
-         sm:max-h-[62vh]
-         md:max-h-[72vh]
-         2xl:max-h-[74vh]"
+                        w-auto
+                        max-h-[55vh]
+                        sm:max-h-[62vh]
+                        md:max-h-[72vh]
+                        2xl:max-h-[74vh]"
                 width={2000}
                 quality={90}
                 format="webp"
@@ -48,3 +88,12 @@ import Header from "./Header.astro";
     </div>
 
 </section>
+
+<script>
+    import { initParallax } from "../scripts/parallax.ts";
+
+    const container = document.getElementById('parallax-container');
+    if (container) {
+        initParallax(container, ".parallax-card", { lerp: 0.18, rotateFactor: 15 });
+    }
+</script>
